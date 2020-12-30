@@ -1,0 +1,449 @@
+﻿<!--<local:PMainPage x:Class="WPFFitApka.PAccount"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFFitApka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PAccount" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Menu" Padding="10,12" Margin="10, 5" Click="Menu_Button"   Name="menu"></Button>
+            <Button Content="Lista zakupów" Padding="10,12" Margin="10, 5" Click="ShoppingList_Button"   Name="shoppingList"></Button>
+            <Button Content="Generuj posiłki" Padding="10,12" Margin="10, 5" Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Content="Wyloguj" Padding="10,12" Margin="10, 5" Click="Logout_Button"></Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Margin="10">Nazwa</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="" Name="userName" Margin="10"></TextBox>
+            <Label Grid.Row="1" Grid.Column="0" Margin="10">Płeć</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="" Name="userSex" Margin="10"></TextBox>
+            <Label Grid.Row="2" Grid.Column="0" Margin="10">Wiek</Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="" Name="userAge" Margin="10"></TextBox>
+            <Label Grid.Row="3" Grid.Column="0" Margin="10">Waga</Label>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="" Name="userWeight" Margin="10"></TextBox>
+            <Label Grid.Row="4" Grid.Column="0" Margin="10">Wzrost</Label>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="" Name="userHeight" Margin="10"></TextBox>
+            <Label Grid.Row="5" Grid.Column="0" Margin="10">BMI</Label>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="" Name="userBMI" Margin="10"></TextBox>
+            <Label Grid.Row="6" Grid.Column="0" Margin="10">Zapotrzebowanie kaloryczne</Label>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="" Name="userKcal" Margin="10"></TextBox>
+            <Grid Grid.Row="7" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Margin="10"> Tłuszcze</Label>
+                <TextBox Grid.Row="1" Grid.Column="0" Text="" Margin="10" Name="userFat"></TextBox>
+                <Label Grid.Row="0" Grid.Column="1" Margin="10">Węglowodany</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="" Margin="10" Name="userCarbohydrate"></TextBox>
+                <Label Grid.Row="0" Grid.Column="2" Margin="10">Tłuszcze</Label>
+                <TextBox Grid.Row="1" Grid.Column="2" Text="" Margin="10" Name="userProtein"></TextBox>
+            </Grid>
+        </Grid>
+        <TextBlock Grid.Row="2"> tu kto wykonal czy jakiś copyright czy coś xD</TextBlock>
+    </Grid>
+</local:PMainPage>-->
+
+<local:PMainPage x:Class="WPFFitApka.PAccount"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFFitApka" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+     FontFamily="Lato"
+      Title="PAccount" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+    <!--    <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions> -->
+
+
+        <StackPanel  Margin="0" VerticalAlignment="Bottom">
+            <Button Margin="5,0,0,15" Width="145" Height="45" Content="Menu"  Click="Menu_Button"   Name="menu"></Button>
+            <Button Width="145" Height="45" Margin="5,0,0,15"  Content="Moje treningi" Click="Trainings_Button"   Name="myTrainings"></Button>
+            <Button Margin="5,0,0,15"  Width="145" Height="45" Content="Lista zakupów"  Click="ShoppingList_Button"   Name="shoppingList"></Button>
+            <Button Margin="5,0,0,15" Width="145" Height="45" Content="Generuj posiłki"  Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+        </StackPanel>
+       <!-- <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,10,0" >
+            <iconPacks:PackIconMaterial Kind="Logout" 
+                                        Foreground="#FF217380"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="16"
+                                        />
+            <ToggleButton Click="Logout_Button" Content="Wyloguj" FontSize="20" Height="40" >
+                <ToggleButton.Style>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="Foreground" Value="#FF217380"/>
+                        <Setter Property="FontFamily" Value="Lato"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontWeight" Value="Light"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="20"
+                            >
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                    </Border>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="White" />
+                                <Setter Property="Opacity" Value="0.4"/>
+                                <Setter Property="Foreground" Value="Red"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+            </ToggleButton>
+        </StackPanel> -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0"  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,25,10,0" >
+                <iconPacks:PackIconMaterial Kind="Logout" 
+                                        Foreground="#FF217380"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="16"
+                                        />
+                <ToggleButton Click="Logout_Button" Content="Wyloguj" FontSize="20" Height="40" >
+                    <ToggleButton.Style>
+                        <Style TargetType="{x:Type ToggleButton}">
+                            <Setter Property="Foreground" Value="#FF217380"/>
+                            <Setter Property="FontFamily" Value="Lato"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Light"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="20"
+                            >
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                        </Border>
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Opacity" Value="0.4"/>
+                                    <Setter Property="Foreground" Value="Red"/>
+
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="40, 10">
+                <Rectangle Grid.Row="0" Grid.Column="0" RadiusX="10" RadiusY="10" Fill="white"   Width="200" Margin="50, 0, 0, 0"/>
+                <StackPanel  Grid.Row="0" Grid.Column="0" Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical">
+                        <Label HorizontalAlignment="Center" Padding="0,10" Margin="50,0,0,0" FontSize="15">Zapotrzebowanie</Label>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <TextBox Foreground="#FFFF9700"  
+                                 FontSize="20" FontWeight="Bold" 
+                                 Text="" Name="userKcal" 
+                                 Background="Transparent"
+                                 TextAlignment="Right"
+                                 Padding="10"
+                                 Margin="5"
+                                 VerticalAlignment="Center"
+                                 />
+                            <Label VerticalAlignment="Center" Content="Kcal" FontSize="20" FontWeight="Bold"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </StackPanel>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="40,10">
+                    <Rectangle Grid.Row="1" Grid.Column="3" RadiusX="10" RadiusY="10" Fill="white" Width="200"  />
+                    <StackPanel  Grid.Row="1" Grid.Column="3" Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <Label HorizontalAlignment="Center" Padding="0,10"  FontSize="15">BMI</Label>
+                            <TextBox Foreground="#FFFF9700"  
+                                 FontSize="20" FontWeight="Bold" 
+                                 Text="" Name="userBMI"
+                                 Background="Transparent"
+                                 TextAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Padding="10"
+                                 Margin="5"
+                             />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Rectangle  RadiusX="10" RadiusY="10" Fill="white" Margin="50, 0, 0, 0" Width="205" Height="200"/>
+                    <Grid Margin="50, 0, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Padding="20, 10" Grid.Row="0" Grid.Column="0">Nazwa</Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15" Foreground="#FF217380" Text="" Name="userName" Margin="15, 10" Height="20"></TextBox>
+                        <Label VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  FontWeight="Bold" FontSize="15" Padding="20, 10, 0, 10">Płeć</Label>
+                        <TextBox FontSize="15" Grid.Row="1" Grid.Column="1" Foreground="#FF217380" Text="" Name="userSex" Margin="15, 10"></TextBox>
+                        <Label VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"  FontWeight="Bold" FontSize="15" Padding="20, 10">Wiek</Label>
+                        <TextBox FontSize="15"  Grid.Row="2" Grid.Column="1" Foreground="#FF217380"  Text="" Name="userAge" Margin="15, 10"></TextBox>
+                        <Label VerticalAlignment="Center"  Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="15" Padding="20, 10">Waga</Label>
+                        <TextBox FontSize="15" Grid.Row="3" Grid.Column="1" Foreground="#FF217380"  Text="" Name="userWeight" Margin="15, 10"></TextBox>
+                        <Label VerticalAlignment="Center"  Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="15" Padding="20, 10">Wzrost</Label>
+                        <TextBox FontSize="15" Grid.Row="4" Grid.Column="1" Foreground="#FF217380"  Text="" Name="userHeight" Margin="15, 10"></TextBox>
+                    </Grid>
+                 
+
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"> 
+                    <Rectangle  RadiusX="10" RadiusY="10" Fill="white" Margin="10,0,0,0" Width="240" Height="200"/>
+                    <Grid Margin="15, 0, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label   FontWeight="Bold" FontSize="15" Grid.Column="0" Grid.Row="0" Padding="20,10,10, 0" Margin="0,10,0, 0">Tłuszcze</Label>
+                        <TextBox FontSize="15" Foreground="#FF217380"  Grid.Row="0" Grid.Column="1" Text="" Padding="20,10,10, 0" Margin="0,10,0, 0"  Name="userFat" ></TextBox>
+                        <Label   FontWeight="Bold" FontSize="15" Grid.Column="0" Grid.Row="1" Padding="20,10,10, 0" Margin="0, 10, 0, 0">Węglowodany</Label>
+                        <TextBox FontSize="15" Foreground="#FF217380"  Grid.Row="1" Grid.Column="1" Text="" Padding="20,10,10, 0" Margin="0,10,0, 0"  Name="userCarbohydrate"></TextBox>
+                        <Label  Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="15" Padding="20,10,10, 0" Margin="0,10,0, 0" >Proteiny</Label>
+                        <TextBox FontSize="15" Foreground="#FF217380"  Grid.Row="2" Grid.Column="1" Text="" Padding="20,10,10, 0" Margin="0,10,0, 0"  Name="userProtein"></TextBox>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+     <!--   <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions> -->
+
+      <!--      <Rectangle Grid.Row="1" Grid.Column="1" RadiusX="10" RadiusY="10" Fill="white" />
+            <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" FontSize="15">Zapotrzebowanie</Label>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <TextBox Foreground="#FFFF9700"  
+                                 FontSize="20" FontWeight="Bold" 
+                                 Text="" Name="userKcal" 
+                                 Background="Transparent"
+                                 TextAlignment="Right"
+                                 VerticalAlignment="Center"
+                                 />
+                        <Label VerticalAlignment="Center" Content="Kcal" FontSize="20" FontWeight="Bold"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel> -->
+
+          <!--  <Rectangle Grid.Row="1" Grid.Column="3" RadiusX="10" RadiusY="10" Fill="white" />
+            <StackPanel  Grid.Row="1" Grid.Column="3" Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center"   FontSize="15">BMI</Label>
+                    <TextBox Foreground="#FFFF9700"  
+                                 FontSize="20" FontWeight="Bold" 
+                                 Text="" Name="userBMI"
+                                 Background="Transparent"
+                                 TextAlignment="Center"
+                                                              VerticalAlignment="Center"
+
+                             />
+                </StackPanel>
+            </StackPanel> -->
+
+     <!--       <Rectangle Grid.Row="3" Grid.Column="1" RadiusX="10" RadiusY="10" Fill="white" />
+            <StackPanel Margin="10,0,0,0" Grid.Row="3" Grid.Column="1" Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Nazwa</Label>
+                    <TextBox FontSize="15" Foreground="#FF217380" Text="" Name="userName" Margin="10" Height="20"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Płeć</Label>
+                    <TextBox FontSize="15" Foreground="#FF217380" Text="" Name="userSex" Margin="10"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Wiek</Label>
+                    <TextBox FontSize="15" Foreground="#FF217380"  Text="" Name="userAge" Margin="10"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Waga</Label>
+                    <TextBox FontSize="15" Foreground="#FF217380"  Text="" Name="userWeight" Margin="10"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Wzrost</Label>
+                    <TextBox FontSize="15" Foreground="#FF217380"  Text="" Name="userHeight" Margin="10"></TextBox>
+                </StackPanel>
+
+            </StackPanel> -->
+
+          <!--  <Rectangle Grid.Row="3" Grid.Column="3" RadiusX="10" RadiusY="10" Fill="white" />
+            <StackPanel Margin="10,0,0,0" Grid.Row="3" Grid.Column="3" Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Tłuszcze</Label>
+                        <TextBox FontSize="15" Foreground="#FF217380"  Grid.Row="1" Grid.Column="0" Text="" Margin="10" Name="userFat"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Węglowodany</Label>
+                        <TextBox FontSize="15" Foreground="#FF217380"  Grid.Row="1" Grid.Column="1" Text="" Margin="10" Name="userCarbohydrate"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15">Proteiny</Label>
+                        <TextBox FontSize="15" Foreground="#FF217380"  Grid.Row="1" Grid.Column="2" Text="" Margin="10" Name="userProtein"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel> 
+        </Grid>-->
+
+        <!--
+        <Grid Grid.Row="1" Grid.Column="1" >
+            
+            
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="111"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="140"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            
+            <Label Grid.Row="0" Grid.Column="1" Margin="10">Nazwa</Label>
+            <TextBox Grid.Row="0" Grid.Column="2" Text="" Name="userName" Margin="10"></TextBox>
+            <Label Grid.Row="1" Grid.Column="1" Margin="10">Płeć</Label>
+            <TextBox Grid.Row="1" Grid.Column="2" Text="" Name="userSex" Margin="10"></TextBox>
+            <Label Grid.Row="2" Grid.Column="1" Margin="10">Wiek</Label>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="" Name="userAge" Margin="10"></TextBox>
+            <Label Grid.Row="3" Grid.Column="1" Margin="10">Waga</Label>
+            <TextBox Grid.Row="3" Grid.Column="2" Text="" Name="userWeight" Margin="10"></TextBox>
+            <Label Grid.Row="4" Grid.Column="1" Margin="10">Wzrost</Label>
+            <TextBox Grid.Row="4" Grid.Column="2" Text="" Name="userHeight" Margin="10"></TextBox>
+            
+            
+            <Label Grid.Row="5" Grid.Column="1" Margin="10">BMI</Label>
+            <TextBox Grid.Row="5" Grid.Column="2" Text="" Name="userBMI" Margin="10"></TextBox>
+            <Label Grid.Row="6" Grid.Column="1" Margin="10">Zapotrzebowanie kaloryczne</Label>
+            <TextBox Grid.Row="6" Grid.Column="2" Text="" Name="userKcal" Margin="10"></TextBox>
+            <Grid Grid.Row="7" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" Margin="10">Tłuszcze</Label>
+                <TextBox Grid.Row="1" Grid.Column="0" Text="" Margin="10" Name="userFat"></TextBox>
+                <Label Grid.Row="0" Grid.Column="1" Margin="10">Węglowodany</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="" Margin="10" Name="userCarbohydrate"></TextBox>
+                <Label Grid.Row="0" Grid.Column="2" Margin="10">Proteiny</Label>
+                <TextBox Grid.Row="1" Grid.Column="2" Text="" Margin="10" Name="userProtein"></TextBox>
+            
+            </Grid>
+        </Grid>-->
+    </Grid>
+</local:PMainPage>
+

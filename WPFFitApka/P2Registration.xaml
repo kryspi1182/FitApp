@@ -1,0 +1,145 @@
+﻿<local:PMainPage x:Class="WPFFitApka.P2Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFFitApka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="P2Registration" 
+                 FontSize="18"  
+                 FontFamily="Lato" 
+      Height="600" Width="500">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="4">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FF217380" Offset="0.0"/>
+                    <GradientStop Color="#FF1C7C4C" Offset="1"/>
+                    <!--<GradientStop Color="#18B6E0" Offset="0.0"/>
+                    <GradientStop Color="#2FBC84" Offset="1"/>-->
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <!--<Rectangle RadiusX="10" RadiusY="10" Fill="#FFF0F0F0" Margin="180,0,0,0"/>-->
+
+
+        <Label 
+               HorizontalAlignment="Center" 
+               Content="Określ swój cel"  
+               Margin="10" 
+               Grid.ColumnSpan="2"
+               FontSize="20"
+               Foreground="White"
+                FontWeight="DemiBold"
+               />
+
+
+        <GroupBox Name="groupbox" 
+                  Foreground="White"
+                  Header="Chcę" 
+                  Margin="50,50,50,0" Grid.ColumnSpan="2"
+                  FontSize="18"
+                  >
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                <RadioButton BorderThickness="2" BorderBrush="#FF217380"  Foreground="White" Content="Schudnąć" Name="loseWeight" Margin="10,5" Checked="YourAim" ></RadioButton>
+                <RadioButton BorderThickness="2" BorderBrush="#FF217380" Foreground="White" Content="Przytyć" Name="putOnWeight" Margin="10,5" Checked="YourAim"></RadioButton>
+                <RadioButton BorderThickness="2" BorderBrush="#FF217380"  Foreground="White" Content="Utrzymać wagę" Name="maintainWeight" Margin="10,5" Checked="YourAim"></RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <Label Content="Określ poziom swojej aktywności fizycznej" 
+               Grid.Row="1" Grid.ColumnSpan="2" Margin="50,40,50,10" 
+               HorizontalAlignment="Center"
+               FontSize="20"
+               Foreground="White"
+               FontWeight="DemiBold" Width="400"
+               />
+
+
+        <StackPanel Grid.Row="2" 
+                    Orientation="Vertical" Margin="28,0,0,0"
+                    >
+            <RadioButton Margin="10" Padding="5" Checked="ActivityType" 
+                         Name="noActivity">
+                <TextBlock Foreground="White" TextWrapping="WrapWithOverflow"  >
+                    <Run FontWeight="Medium" Text="Brak aktywności" FontSize="20"/>
+                    <LineBreak/>
+                    <Run Foreground="#40FFFFFF" 
+                         FontSize="15"
+                         Text="(Praca siedząca i brak treningów lub 1 tygodniowo)"/>
+                </TextBlock>
+            </RadioButton>
+
+            <RadioButton Margin="10" Padding="5" Checked="ActivityType" 
+                         Name="smallActivity">
+                <TextBlock Foreground="White" 
+                           TextWrapping="WrapWithOverflow"  >
+                    <Run FontWeight="Medium" Text="Niska aktywność" FontSize="20"/>
+                    <LineBreak/>
+                    <Run Foreground="#40FFFFFF" 
+                          FontSize="15"
+                         Text="(Praca siedząca i 2-3 treningi tygodniowo)"/>
+                </TextBlock>
+            </RadioButton>
+
+        </StackPanel>
+
+
+
+
+        <StackPanel Grid.Row="2" Grid.Column="1" 
+                    Orientation="Vertical" Margin="0,0,35,0" 
+                    >
+            <RadioButton 
+                BorderThickness="2" BorderBrush="#FF217380"
+                Margin="5" Padding="5" Checked="ActivityType"  
+                Name="avgActivity">
+
+                <TextBlock Foreground="White" TextWrapping="WrapWithOverflow">
+                    <Run FontWeight="Medium" Text="Średnia aktywność" FontSize="20"/>
+                    <LineBreak/>
+                    <Run Foreground="#40FFFFFF" 
+                          FontSize="15"
+                         Text="(Praca wysiłkowa i dodatkowy trening bądź 4 treningi/tydzień)"/>
+
+                </TextBlock>
+            </RadioButton>
+            <RadioButton Margin="10" Padding="5" 
+                         Checked="ActivityType" 
+                         Name="largeActivity"
+                         BorderThickness="2" BorderBrush="#FF217380"
+                         >
+                <TextBlock Foreground="White"
+                            FontSize="15"
+                           TextWrapping="WrapWithOverflow"  >
+                <Run FontWeight="Medium" Text="Wysoka aktywność" FontSize="20"/>
+                    <LineBreak/>
+                    <Run Foreground="#40FFFFFF" 
+                         Text="(Praca wysiłkowa i kilka treningów tygodniowo bądź 6 treningów/tydzień)"/>
+
+                </TextBlock>
+            </RadioButton>
+        </StackPanel>
+
+        <Button Grid.Column="0" Grid.Row="3" 
+                Width="100" 
+                Height="45"
+                Content="Cofnij" VerticalAlignment="Center" Click="Back"/>
+        <Button Grid.Column="1" Grid.Row="3" 
+                Width="150" 
+                Height="45"
+                Content="Załóż konto" VerticalAlignment="Center" Click="Next"/>
+    </Grid>
+</local:PMainPage>

@@ -1,0 +1,183 @@
+﻿<!--<local:PMainPage x:Class="WPFFitApka.PMainAfterLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WPFFitApka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PMainAfterLogin" Loaded="MainPage_Loaded" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Lista zakupów" Padding="10,12" Margin="10, 5" Click="ShoppingList_Button"   Name="shoppingList"></Button>
+            <Button Content="Generuj posiłki" Padding="10,12" Margin="10, 5" Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Content="Wyloguj" Padding="10,12" Margin="10, 5" Click="Logout_Button"></Button>
+            <Button Content="Moje konto" Padding="10,12" Margin="10,5" Click="Account_Button"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" FontSize="30"  Name="mainTextBlock" Text=""></TextBlock>
+        <TextBlock Grid.Row="2"> tu kto wykonal czy jakiś copyright czy coś xD</TextBlock>
+    </Grid>
+</local:PMainPage>-->
+
+<local:PMainPage x:Class="WPFFitApka.PMainAfterLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WPFFitApka"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PMainAfterLogin" Loaded="MainPage_Loaded"
+      >
+
+
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+       <!-- <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>-->
+
+
+        <StackPanel Grid.Column="0" Margin="0" VerticalAlignment="Bottom">
+            <Button Width="145" Height="45" Margin="5,0,0,15"  Content="Moje treningi" Click="Trainings_Button"   Name="myTrainings"></Button>
+            <Button Width="145" Height="45" Margin="5,0,0,15" Content="Lista zakupów" Click="ShoppingList_Button"   Name="shoppingList"></Button>
+            <Button Width="145" Height="45" Margin="5,0,0,15" Content="Generuj posiłki" Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Width="145" Height="45" Margin="5,0,0,15" Content="Moje konto" Click="Account_Button"/>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0"  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,25,10,0" >
+                <iconPacks:PackIconMaterial Kind="Logout" 
+                                        Foreground="#FF217380"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="16"
+                                        />
+                <ToggleButton Click="Logout_Button" Content="Wyloguj" FontSize="20" Height="40" >
+                    <ToggleButton.Style>
+                        <Style TargetType="{x:Type ToggleButton}">
+                            <Setter Property="Foreground" Value="#FF217380"/>
+                            <Setter Property="FontFamily" Value="Lato"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Light"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="20"
+                            >
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                        </Border>
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Opacity" Value="0.4"/>
+                                    <Setter Property="Foreground" Value="Red"/>
+
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+               
+            </StackPanel>
+            <Image Grid.Row="0" Grid.RowSpan="2" Source="/img/pyk.png" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="15" ></Image>
+            <TextBlock Grid.Row="2"  FontSize="25" Foreground="#FF1C7C4C" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">FitApka służy do dostosowania diety
+                <LineBreak></LineBreak> do Twoich indywidualnych potrzeb.
+                <LineBreak></LineBreak>Dzięki nam łatwiej zrobisz zakupy.</TextBlock>
+            <TextBlock Grid.Row="3"  FontSize="20" Foreground="#FF217380" Margin="10, 10. 0, 40" HorizontalAlignment="Stretch"  VerticalAlignment="Top" TextAlignment="Center" FontStyle="Italic">"Nie przytyłaś przez jedną noc, 
+                nie licz na to,<LineBreak></LineBreak>że schudniesz w jeden dzień."</TextBlock>
+        </Grid>
+     <!--   <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,10,0" >
+            <iconPacks:PackIconMaterial Kind="Logout" 
+                                        Foreground="#FF217380"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="16"
+                                        />
+            <ToggleButton Click="Logout_Button" Content="Wyloguj" FontSize="20" Height="40" >
+                <ToggleButton.Style>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="Foreground" Value="#FF217380"/>
+                        <Setter Property="FontFamily" Value="Lato"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontWeight" Value="Light"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="20"
+                            >
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                    </Border>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="White" />
+                                <Setter Property="Opacity" Value="0.4"/>
+                                <Setter Property="Foreground" Value="Red"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+            </ToggleButton>
+        </StackPanel> -->
+      <!--  <Grid Background="Transparent"  Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions> -->
+            <!--   <Image Grid.Row="0" Source="/img/pyk.png" VerticalAlignment="Top" HorizontalAlignment="Center"></Image>
+           <TextBlock Grid.Row="1" Grid.RowSpan="1" FontSize="25" Foreground="#FF1C7C4C" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center">FitApka służy do dostosowania diety
+                <LineBreak></LineBreak> do Twoich indywidualnych potrzeb.
+                <LineBreak></LineBreak>Dzięki nam łatwiej zrobisz zakupy.</TextBlock>
+            <TextBlock Grid.Row="2" Grid.RowSpan="1" FontSize="25" Foreground="#FF217380" Margin="25" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontStyle="Italic">"Nie przytyłaś przez jedną noc, 
+                nie licz na to,<LineBreak></LineBreak>że schudniesz w jeden dzień."</TextBlock> -->
+            
+      <!--  </Grid> -->
+        <!--<TextBlock FontSize="30"  Name="mainTextBlock" Text="" Margin="0,-155,3,-198" Height="445" VerticalAlignment="Top"/> -->
+
+    </Grid>
+
+
+</local:PMainPage>
+

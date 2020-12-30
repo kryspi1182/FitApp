@@ -1,0 +1,283 @@
+﻿<!--<local:PMainPage x:Class="WPFFitApka.PShoppingList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFFitApka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PShoppingList">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Menu" Padding="10,12" Margin="10, 5" Click="Menu_Button"   Name="menu"></Button>
+            <Button Content="Generuj posiłki" Padding="10,12" Margin="10, 5" Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Content="Wyloguj" Padding="10,12" Margin="10, 5" Click="Logout_Button"></Button>
+            <Button Content="Moje konto" Padding="10,12" Margin="10,5" Click="Account_Button"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="30">Lista zakupów</TextBlock>
+            
+            <ListBox Grid.Row="1" Margin="10" Name="ShoppingListBox"></ListBox>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+
+                    <Button Name="add" Content="Dodaj produkt" Click="AddProduct" Padding="10,5" Margin="10"></Button>
+                    <Button Name="delete" Content="Usuń produkt" Click="DeleteProduct" Padding="10,5" Margin="10"></Button>
+                    <Button Name="generate" Content="Generuj listę" Click="GenerateProducts" Padding="10,5" Margin="10"></Button>
+                </StackPanel>
+                <StackPanel Name="test" Visibility="Hidden" Orientation="Horizontal" Grid.Row="1">
+                    <Label Content="Nazwa" Margin="10"/>
+                    <TextBox Name="testName" Padding="10,5" Margin="10" MinWidth="100"></TextBox>
+                    <Label Content="Ilość" Margin="10"/>
+                    <TextBox Name="testWeight" Padding="10,5" Margin="10" MinWidth="50"></TextBox>
+                    <Button Content="Dodaj" Click="testAddProduct" Padding="10,5" Margin="10"></Button>
+                </StackPanel>
+            </Grid>
+            
+
+        </Grid>
+    </Grid>
+</local:PMainPage>-->
+
+<local:PMainPage x:Class="WPFFitApka.PShoppingList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFFitApka" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 mc:Ignorable="d" 
+      FontFamily="Lato"
+      d:DesignHeight="450" d:DesignWidth="800"
+      >
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+            <Button Margin="5,0,0,15" Width="145" Height="45" Content="Menu"  Click="Menu_Button"   Name="menu"></Button>
+            <Button Width="145" Height="45" Margin="5,0,0,15"  Content="Moje treningi" Click="Trainings_Button"   Name="myTrainings"></Button>
+            <Button Margin="5,0,0,15" Width="145" Height="45" Content="Generuj posiłki"  Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Width="145" Height="45" Margin="5,0,0,15" Content="Moje konto" Click="Account_Button"/>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0"  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,25,10,0" >
+                <iconPacks:PackIconMaterial Kind="Logout" 
+                                        Foreground="#FF217380"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="16"
+                                        />
+                <ToggleButton Click="Logout_Button" Content="Wyloguj" FontSize="20" Height="40" >
+                    <ToggleButton.Style>
+                        <Style TargetType="{x:Type ToggleButton}">
+                            <Setter Property="Foreground" Value="#FF217380"/>
+                            <Setter Property="FontFamily" Value="Lato"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Light"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="20"
+                            >
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                        </Border>
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Opacity" Value="0.4"/>
+                                    <Setter Property="Foreground" Value="Red"/>
+
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+            </StackPanel>
+            <Label Foreground="#FF217380"
+                   FontSize="15"
+                   Grid.Row="0"  
+                   HorizontalAlignment="Center" 
+                   Content="Twoja lista zakupowa" 
+                   Margin="0" Grid.RowSpan="2" VerticalAlignment="Bottom"
+                   FontWeight="Bold"></Label>
+            <Rectangle  Grid.Row="2" Fill="White" Margin="30, 10, 30, 10" RadiusX="10" RadiusY="10" ></Rectangle>
+            <ListBox Grid.Row="2" Margin="35, 10, 35, 10"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Name = "ShoppingListBox"
+                     ></ListBox>
+            <StackPanel  Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0, 0, 0, 20">
+                <Button Margin="0,0,0,10" Width="85" Height="45" Name="add" Content="Dodaj"  Click="AddProduct" Background="#FF217380"/>
+                    <Button Margin="10,0,0,10" Width="85" Height="45" Name="delete" Content="Usuń"  Click="DeleteProduct" Background="#FF217380"/>
+                    <Button Name="generate" Width="145" Height="45" Content="Generuj listę" Click="GenerateProducts" Margin="10, 0, 0, 10" Background="#FF217380"></Button>
+                
+                <!-- <Button Margin="10,0,0,10" Width="80" Height="40" Name="delete" Content="Usuń"  Click="DeleteProduct"/>-->
+            </StackPanel>
+        </Grid>
+        <!--   <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="2" Margin="0,175,0,0">
+            <Button Margin="0,0,0,10" Width="140" Height="40" Content="Menu"  Click="Menu_Button"   Name="menu"></Button>
+            <Button Margin="0,0,0,10" Width="140" Height="40" Content="Generuj posiłki"  Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Width="140" Height="40" Margin="0,0,0,10" Content="Moje konto" Click="Account_Button"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,10,0" >
+            <iconPacks:PackIconMaterial Kind="Logout" 
+                                        Foreground="#FF217380"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="16"
+                                        />
+            <ToggleButton Click="Logout_Button" Content="Wyloguj" FontSize="20" Height="40" >
+                <ToggleButton.Style>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="Foreground" Value="#FF217380"/>
+                        <Setter Property="FontFamily" Value="Lato"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontWeight" Value="Light"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="20"
+                            >
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                    </Border>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="White" />
+                                <Setter Property="Opacity" Value="0.4"/>
+                                <Setter Property="Foreground" Value="Red"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+            </ToggleButton>
+        </StackPanel> -->
+
+      <!--  <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Foreground="#FF217380"
+                   FontSize="15"
+                   Grid.Row="0" Grid.Column="1" 
+                   HorizontalAlignment="Center" 
+                   Content="Twoja lista zakupowa" 
+                   Margin="175,0,175,265" Grid.RowSpan="2"></Label>
+            <Rectangle Grid.Column="1" Grid.Row="1" Fill="White" Margin="10" RadiusX="10" RadiusY="10"></Rectangle>
+            <ListBox Grid.Column="1" Grid.Row="1" Margin="20"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Name="ShoppingListBox"
+                     ></ListBox>  -->
+            <!--<Rectangle Grid.Row="1" Grid.Column="1" Fill="white" Margin="10" RadiusX="10" RadiusY="10" ></Rectangle>-->
+
+
+        <!--    <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <Button Margin="0,0,0,10" Width="80" Height="40" Name="add" Content="Dodaj"  Click="AddProduct" Background="#FF217380"/>
+                <Button Margin="10,0,0,10" Width="80" Height="40" Name="delete" Content="Usuń"  Click="DeleteProduct" Background="#FF217380"/>
+                <Button Name="generate" Width="140" Height="40" Content="Generuj listę" Click="GenerateProducts" Margin="10, 0, 0, 10" Background="#FF217380"></Button>
+            </StackPanel>
+
+        </Grid> -->
+
+    </Grid>
+    <!--
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Menu" Padding="10,12" Margin="10, 5" Click="Menu_Button"   Name="menu"></Button>
+            <Button Content="Generuj posiłki" Padding="10,12" Margin="10, 5" Click="MealsGenerator_Button"   Name="generatemeals"></Button>
+            <Button Content="Wyloguj" Padding="10,12" Margin="10, 5" Click="Logout_Button"></Button>
+            <Button Content="Moje konto" Padding="10,12" Margin="10,5" Click="Account_Button"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30">Lista zakupów</TextBlock>
+            <ListBox Grid.Row="1" Margin="10"></ListBox>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <Button Name="add" Content="Dodaj produkt" Grid.Row="0" Grid.Column="1" Click="AddProduct" Padding="10,5" Margin="10"></Button>
+                <Button Name="delete" Content="Usuń produkt" Grid.Row="1" Grid.Column="1" Click="DeleteProduct" Padding="10,5" Margin="10"></Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>-->
+</local:PMainPage>
+
